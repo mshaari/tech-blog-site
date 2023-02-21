@@ -1,0 +1,14 @@
+[
+  {
+    "name": "HTML and CSS",
+    "description": "HTML and CSS work together to allow web developers to create beatifully designed webpages with both content and styling."
+  },
+  {
+    "name": "Handlebars",
+    "description": "Handlebars allows web developers to create dynamic and essentially auto-generating webpages. It is an example of a templating engine."
+  },
+  {
+    "name": "Model-View-Controller",
+    "description": "Model-View-Controller framework is an architectural pattern that adheres to the separation of concerns principle."
+  }
+]
