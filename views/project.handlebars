@@ -3,7 +3,15 @@
   <p>{{{get_emoji}}}</p>
   <p>{{description}}</p>
   <p>Posted by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+  {{#if logged_in}}
+  <form>
+    <textarea id="commentText"></textarea>
+    <button id="postButton">Post your comment!</button>
+  </form>
+  {{/if}}
+
+  {{> comments post.comments}}
+
 </div>
+
+<script src="/js/comment.js"></script>
