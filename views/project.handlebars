@@ -9,8 +9,16 @@
     <button id="postButton">Post your comment!</button>
   </form>
   {{/if}}
-
-  {{> comments post.comments}}
+  <br><br>
+  <h3>Previous Post Comments:</h3>
+  
+  <div>
+    {{#each comment as |comment|}}
+    <h4>{{comment.user.name}} posted on {{format_date comment.createdAt}}</h4>
+    <p>{{comment.body}}</p>
+    {{/each}}
+  </div>
+</div>
 
 </div>
 

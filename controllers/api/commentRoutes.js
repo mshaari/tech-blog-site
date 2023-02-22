@@ -15,10 +15,10 @@ router.post('/', withAuth, (req, res) => {
   // check the session
   if (req.session) {
     Comment.create({
-      comment_text: req.body.comment_text,
-      post_id: req.body.post_id,
+      body: req.body.body,
+      project_id: req.body.project_id,
       // use the id from the session
-      user_id: req.session.user_id,
+      commenter_id: req.session.user_id,
     })
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {
