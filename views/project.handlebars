@@ -12,12 +12,12 @@
   <br><br>
   <h3>Previous Post Comments:</h3>
   
-  <div class="previousComments">
-    {{#each comment as |comment|}}
-    <h4>{{comment.user.name}} posted on {{format_date comment.createdAt}}</h4>
+  <ul class="previousComments">
+    {{#each comments as |comment|}}
+    <h4>{{comment.commenter_id}}</h4>
     <p>{{comment.body}}</p>
     {{/each}}
-  </div>
+  </ul>
 </div>
 
 </div>

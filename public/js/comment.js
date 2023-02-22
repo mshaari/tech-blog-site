@@ -12,7 +12,7 @@ async function commentFormHandler(event) {
           method: 'POST',
           body: JSON.stringify({
             body,
-            user_id,
+            commenter_id,
             project_id
           }),
           headers: {
