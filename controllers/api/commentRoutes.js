@@ -11,20 +11,18 @@ router.get('/', (req, res) => {
       });
 });
 
-router.post('/', withAuth, (req, res) => {
-  // check the session
-  if (req.session) {
-    Comment.create({
+router.post('/', withAuth, async (req, res) => {
+  try {
+
+    const newComment = await Comment.create({
       body: req.body.body,
       project_id: req.body.project_id,
-      // use the id from the session
       commenter_id: req.session.user_id,
-    })
-      .then(dbCommentData => res.json(dbCommentData))
-      .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-      });
+    });
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

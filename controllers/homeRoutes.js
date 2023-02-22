@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const projects = projectData.map((project) => project.get({ plain: true }));
 
-    console.log(projects,"Homeroute");
+    // console.log(projects,"Homeroute");
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -50,7 +50,7 @@ router.get('/project/:id', async (req, res) => {
 
     const project = projectData.get({ plain: true });
 
-    console.log(project);
+    // console.log(project);
 
     res.render('project', {
       ...project,

@@ -2,25 +2,33 @@ const projectComment = document.getElementById("commentText");
 
 const submitButton = document.getElementById("postButton");
 
-// "e" is the argument in the function, followed by the block of code to run
-submitButton.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const body = projectComment.value.trim();
-    const commenter_id =  req.session.user_id;
-    const project_id = req.session.project_id;
+const deleteButton = document.getElementById("deleteButton");
 
-    if (body) {
-        const newComment = await fetch('/api/comments', {
+const editButton = document.getElementById("editButton");
+
+// "e" is the argument in the function, followed by the block of code to run
+submitButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const body = projectComment.value;
+    const project_id = submitButton.getAttribute("project-id");
+
+    if(!body) {
+      window.alert("Please enter comment text.");
+    };
+
+    if (body && project_id) {
+        const newComment = await fetch('/api/comments/', {
             method: 'POST',
-            body: JSON.stringify({ body, commenter_id, project_id }),
-            headers: { 'Content-Type': 'application/json', },
-        })
+            body: JSON.stringify({ body, project_id }),
+            headers: { 'Content-Type': 'application/json' },
+        });
 
         if (newComment.ok) {
             // If successful, reload page with new comment
             window.location.reload();
           } else {
-            alert('Failed to create comment');
+            window.alert('Failed to create comment');
         };
     };
 });
+

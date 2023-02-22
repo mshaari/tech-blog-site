@@ -5,8 +5,8 @@
   <p>Posted by {{user.name}} on {{format_date date_created}}</p>
   {{#if logged_in}}
   <form>
-    <textarea id="commentText"></textarea>
-    <button id="postButton">Post your comment!</button>
+    <textarea id="commentText" project-id="{{id}}"></textarea>
+    <button id="postButton" project-id="{{id}}">Post your comment!</button>
   </form>
   {{/if}}
   <br><br>
@@ -14,9 +14,16 @@
   
   <div class="previousComments">
     {{#each comments as |comment|}}
-    <h6>-------<br>Commented by {{comment.user.name}} on {{format_date comment.date_created}}</h6>
-    <p>{{comment.body}}</p>
+    <div project-id="{{comment.project_id}}">
+      <h6>-------<br>Commented by {{comment.user.name}} on {{format_date comment.date_created}}</h6>
+      <p>{{comment.body}}</p>
+      {{!-- see if you can get it so that it only shows the option to delete/edit if they wrote the comment --}}
+      {{!-- {{#if logged_in}} --}}
+        <button id="deleteButton" project-id="{{comment.project_id}}">Delete Comment</button>
+        <button id="editButton" project-id="{{comment.project_id}}">Edit Comment</button>
+      {{!-- {{/if}} --}}
     {{/each}}
+    </div>
   </div>
 </div>
 
