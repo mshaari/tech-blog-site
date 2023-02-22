@@ -32,3 +32,21 @@ submitButton.addEventListener("click", async (event) => {
     };
 });
 
+deleteButton.addEventListener("click", async (event) => {
+  event.preventDefault();
+  const project_id = deleteButton.getAttribute("project-id");
+
+  if (project_id) {
+      const deleteComment = await fetch(`/api/comments/${project_id}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (deleteComment.ok) {
+          // If successful, reload page without comment
+          window.location.reload();
+        } else {
+          window.alert('Failed to delete comment');
+      };
+  };
+});
