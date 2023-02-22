@@ -10,6 +10,16 @@
       "project_id": 2
     },
     {
+      "body": "This is a comment by user 2 for project 2",
+      "commenter_id": 2,
+      "project_id": 2
+    },
+    {
+      "body": "This is a comment by user 3 for project 2",
+      "commenter_id": 3,
+      "project_id": 2
+    },
+    {
       "body": "This is a comment by user 3 for project 3",
       "commenter_id": 3,
       "project_id": 3
