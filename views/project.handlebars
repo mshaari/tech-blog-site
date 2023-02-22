@@ -12,15 +12,15 @@
   <br><br>
   <h3>Previous Post Comments:</h3>
   
-  <div class="previousComments">
+  <div class="previousComments" >
     {{#each comments as |comment|}}
-      <div project-id="{{comment.project_id}}">
+      <div project-id="{{comment.project_id}}" comment-id="{{comment.id}}">
         <h6>-------<br>Commented by {{comment.user.name}} on {{format_date comment.date_created}}</h6>
         <p>{{comment.body}}</p>
         {{!-- see if you can get it so that it only shows the option to delete/edit if they wrote the comment --}}
         {{!-- {{#if logged_in}} --}}
-          <button id="deleteButton" project-id="{{comment.id}}">Delete Comment</button>
-          <button id="editButton" project-id="{{comment.id}}">Edit Comment</button>
+          <button id="deleteButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Delete Comment</button>
+          <button id="editButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Edit Comment</button>
         {{!-- {{/if}} --}}
       </div>
     {{/each}}

@@ -34,10 +34,12 @@ submitButton.addEventListener("click", async (event) => {
 
 deleteButton.addEventListener("click", async (event) => {
   event.preventDefault();
-  const project_id = deleteButton.getAttribute("project-id");
+  const comment_id = deleteButton.getAttribute("comment-id");
 
-  if (project_id) {
-      const deleteComment = await fetch(`/api/comments/${project_id}`, {
+  window.alert("Button clicked")
+
+  if (comment_id) {
+      const deleteComment = await fetch(`/api/comments/${comment_id}`, {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
       });
@@ -53,11 +55,11 @@ deleteButton.addEventListener("click", async (event) => {
 
 editButton.addEventListener("click", async (event) => {
   event.preventDefault();
-  const project_id = editButton.getAttribute("project-id");
+  const comment_id = editButton.getAttribute("comment-id");
   const updatedText = window.prompt("What do you want to update the comment to say?");
 
-  if (updatedText && project_id) {
-      const updateComment = await fetch(`/api/comments/${project_id}`, {
+  if (updatedText && comment_id) {
+      const updateComment = await fetch(`/api/comments/${comment_id}`, {
           method: 'PUT',
           body: JSON.stringify({updatedText}),
           headers: { 'Content-Type': 'application/json' },
