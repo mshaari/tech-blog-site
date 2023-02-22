@@ -1,31 +1,26 @@
-async function commentFormHandler(event) {
+const projectComment = document.getElementById("commentText");
+
+const submitButton = document.getElementById("postButton");
+
+// "e" is the argument in the function, followed by the block of code to run
+submitButton.addEventListener("submit", async (event) => {
     event.preventDefault();
-  
-    const comment_text = document.querySelector('#commentText').value.trim();
-  
-    const post_id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-  
-    if (comment_text) {
-        const response = await fetch('/api/comments', {
-          method: 'POST',
-          body: JSON.stringify({
-            body,
-            commenter_id,
-            project_id
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-      
-        if (response.ok) {
-          document.location.reload();
-        } else {
-          alert(response.statusText);
-        }
-      }
-  }
-  
-  document.querySelector('#postButton').addEventListener('submit', commentFormHandler);
+    const body = projectComment.value.trim();
+    const commenter_id =  req.session.user_id;
+    const project_id = req.session.project_id;
+
+    if (body) {
+        const newComment = await fetch('/api/comments', {
+            method: 'POST',
+            body: JSON.stringify({ body, commenter_id, project_id }),
+            headers: { 'Content-Type': 'application/json', },
+        })
+
+        if (newComment.ok) {
+            // If successful, reload page with new comment
+            window.location.reload();
+          } else {
+            alert('Failed to create comment');
+        };
+    };
+});
