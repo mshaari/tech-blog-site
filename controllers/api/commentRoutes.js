@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//get a comment
 router.get('/', (req, res) => {
     Comment.findAll({})
       .then(dbCommentData => res.json(dbCommentData))
@@ -11,6 +12,7 @@ router.get('/', (req, res) => {
       });
 });
 
+//add a comment
 router.post('/', withAuth, async (req, res) => {
   try {
 
@@ -26,9 +28,9 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//delete a comment
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-
     const deleteComment = await Comment.destroy({
       where: {
         id: req.params.id
@@ -36,6 +38,29 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     res.status(200).json(deleteComment);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+//update a comment
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+
+    const updatedComment = req.body.updatedText;
+
+    const updateComment = await Comment.update(
+      {
+        body: updatedComment
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    );
+
+    res.status(200).json(updateComment);
   } catch (err) {
     res.status(400).json(err);
   }
