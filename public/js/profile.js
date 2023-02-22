@@ -25,20 +25,23 @@ const delButtonHandler = async (event) => {
   event.preventDefault();
   const project_id = document.querySelector('#deletepostbutton').getAttribute('data-id');
 
-  if (project_id) {
-      const deleteComment = await fetch(`/api/projects/${project_id}`, {
-          method: 'DELETE',
-          headers: { 'Content-Type': 'application/json' },
-      });
+  window.alert(`attempting to delete project with id = ${project_id}`);
 
-      if (deleteComment.ok) {
-          // If successful, reload page without comment
-          window.location.reload();
-        } else {
-          window.alert('Failed to delete comment');
-      };
+  if (project_id) {
+    const deleteComment = await fetch(`/api/projects/${project_id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (deleteComment.ok) {
+      // If successful, reload page without project
+      window.location.reload();
+    } else {
+      window.alert('Failed to delete comment');
+    };
   };
 };
+
 
 const editButtonHandler = async (event) => {
   event.preventDefault();
@@ -47,19 +50,19 @@ const editButtonHandler = async (event) => {
   const updatedBody = window.prompt("What do you want the body to be?");
 
   if (updatedBody && updatedName) {
-    const updateProject = await fetch(`/api/projects/${id}`, 
+    const updateProject = await fetch(`/api/projects/${id}`,
       {
         method: 'PUT',
-        body: JSON.stringify({updatedName, updatedBody}),
+        body: JSON.stringify({ updatedName, updatedBody }),
         headers: { 'Content-Type': 'application/json' },
       });
 
-      if (updateProject.ok) {
-          // If successful, reload page with updated comment
-          window.location.reload();
-        } else {
-          window.alert('Failed to update post');
-      };
+    if (updateProject.ok) {
+      // If successful, reload page with updated comment
+      window.location.reload();
+    } else {
+      window.alert('Failed to update post');
+    };
   }
 }
 
