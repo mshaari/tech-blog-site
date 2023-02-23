@@ -17,15 +17,13 @@ const newFormHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert('Failed to create project');
-    }
-  }
+    };
+  };
 };
 
 const delButtonHandler = async (event) => {
   event.preventDefault();
   const project_id = event.target.getAttribute('data-id');
-
-  window.alert(`attempting to delete project with id = ${project_id}`);
 
   if (project_id) {
     const deleteComment = await fetch(`/api/projects/${project_id}`, {
@@ -63,17 +61,23 @@ const editButtonHandler = async (event) => {
     } else {
       window.alert('Failed to update post');
     };
-  }
-}
+  };
+};
+
+const handleEditOrDelete = async (event) => {
+  if (event.target.getAttribute("id") === "updatepostbutton") {
+    editButtonHandler(event);
+  };
+
+  if (event.target.getAttribute("id") === "deletepostbutton") {
+    delButtonHandler(event);
+  };
+};
 
 document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('#deletepostbutton')
-  .addEventListener('click', delButtonHandler);
-
-document
-  .querySelector('#updatepostbutton')
-  .addEventListener('click', editButtonHandler);
+  .querySelector('.project-list')
+  .addEventListener('click', handleEditOrDelete);
