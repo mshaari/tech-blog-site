@@ -65,6 +65,7 @@ const editButtonHandler = async (event) => {
 };
 
 const handleEditOrDelete = async (event) => {
+
   if (event.target.getAttribute("id") === "updatepostbutton") {
     editButtonHandler(event);
   };

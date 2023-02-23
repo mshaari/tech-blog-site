@@ -18,7 +18,7 @@
         <h6>-------<br>Commented by {{comment.user.name}} on {{format_date comment.date_created}}</h6>
         <p>{{comment.body}}</p>
         {{!-- see if you can get it so that it only shows the option to delete/edit if they wrote the comment --}}
-        {{!-- {{#if logged_in}} --}}
+        {{!-- {{#if project.logged_in}} --}}
           <button class="deleteButton" id="deleteButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Delete Comment</button>
           <button class="editButton" id="editButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Edit Comment</button>
         {{!-- {{/if}} --}}
