@@ -1,3 +1,5 @@
+//Seeding the database
+
 const sequelize = require('../config/connection');
 const { User, Project, Comment } = require('../models');
 

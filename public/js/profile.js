@@ -1,3 +1,4 @@
+// handle submitting new project (post)
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -21,6 +22,7 @@ const newFormHandler = async (event) => {
   };
 };
 
+// handle deleting a project (post)
 const delButtonHandler = async (event) => {
   event.preventDefault();
   const project_id = event.target.getAttribute('data-id');
@@ -40,7 +42,7 @@ const delButtonHandler = async (event) => {
   };
 };
 
-
+// handle editing a project (post)
 const editButtonHandler = async (event) => {
   event.preventDefault();
   const id = event.target.getAttribute('data-id');
@@ -64,6 +66,7 @@ const editButtonHandler = async (event) => {
   };
 };
 
+// determine if the user clicked the edit or delete button (and then redirect them to the corresponding function)
 const handleEditOrDelete = async (event) => {
 
   if (event.target.getAttribute("id") === "updatepostbutton") {

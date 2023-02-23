@@ -29,6 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+//get one particular project 
 router.get('/project/:id', async (req, res) => {
   try {
     const projectData = await Project.findByPk(req.params.id, {
@@ -47,9 +48,7 @@ router.get('/project/:id', async (req, res) => {
       ],
     });
 
-
     const project = projectData.get({ plain: true });
-
 
     res.render('project', {
       ...project,
@@ -62,6 +61,7 @@ router.get('/project/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
+// get profile to show (dashboard)
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID

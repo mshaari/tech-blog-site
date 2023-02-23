@@ -2,7 +2,7 @@ const projectComment = document.getElementById("commentText");
 
 const submitButton = document.getElementById("postButton");
 
-
+//submitting new comment
 const submitButtonHandler = async (event) => {
   event.preventDefault();
   const body = projectComment.value;
@@ -28,6 +28,7 @@ const submitButtonHandler = async (event) => {
   };
 };
 
+//deleting comment
 const deleteButtonHandler = async (event) => {
   const comment_id = event.target.getAttribute("comment-id");
 
@@ -46,6 +47,7 @@ const deleteButtonHandler = async (event) => {
   };
 };
 
+//updating comment
 const editButtonHandler = async (event) => {
   const comment_id = event.target.getAttribute("comment-id");
   const updatedText = window.prompt("What do you want to update the comment to say?");
@@ -66,6 +68,7 @@ const editButtonHandler = async (event) => {
   };
 };
 
+// determine if the user clicked the edit or delete button (and then redirect them to the corresponding function)
 const handleEditOrDelete = async (event) => {
   if (event.target.getAttribute("id") === "editButton") {
     editButtonHandler(event);
