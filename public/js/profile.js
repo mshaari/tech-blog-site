@@ -23,7 +23,7 @@ const newFormHandler = async (event) => {
 
 const delButtonHandler = async (event) => {
   event.preventDefault();
-  const project_id = document.querySelector('#deletepostbutton').getAttribute('data-id');
+  const project_id = event.target.getAttribute('data-id');
 
   window.alert(`attempting to delete project with id = ${project_id}`);
 

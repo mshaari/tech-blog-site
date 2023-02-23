@@ -19,8 +19,8 @@
         <p>{{comment.body}}</p>
         {{!-- see if you can get it so that it only shows the option to delete/edit if they wrote the comment --}}
         {{!-- {{#if logged_in}} --}}
-          <button id="deleteButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Delete Comment</button>
-          <button id="editButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Edit Comment</button>
+          <button class="deleteButton" id="deleteButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Delete Comment</button>
+          <button class="editButton" id="editButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Edit Comment</button>
         {{!-- {{/if}} --}}
       </div>
     {{/each}}

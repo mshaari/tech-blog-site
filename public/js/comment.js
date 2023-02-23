@@ -2,9 +2,6 @@ const projectComment = document.getElementById("commentText");
 
 const submitButton = document.getElementById("postButton");
 
-const deleteButton = document.getElementById("deleteButton");
-
-const editButton = document.getElementById("editButton");
 
 const submitButtonHandler = async (event) => {
   event.preventDefault();
@@ -32,8 +29,7 @@ const submitButtonHandler = async (event) => {
 };
 
 const deleteButtonHandler = async (event) => {
-  event.preventDefault();
-  const comment_id = deleteButton.getAttribute("comment-id");
+  const comment_id = event.target.getAttribute("comment-id");
 
   if (comment_id) {
     const deleteComment = await fetch(`/api/comments/${comment_id}`, {
@@ -51,8 +47,7 @@ const deleteButtonHandler = async (event) => {
 };
 
 const editButtonHandler = async (event) => {
-  event.preventDefault();
-  const comment_id = editButton.getAttribute("comment-id");
+  const comment_id = event.target.getAttribute("comment-id");
   const updatedText = window.prompt("What do you want to update the comment to say?");
 
   if (updatedText && comment_id) {
@@ -71,8 +66,16 @@ const editButtonHandler = async (event) => {
   };
 };
 
+const handleEditOrDelete = async (event) => {
+  if (event.target.getAttribute("id") === "editButton") {
+    editButtonHandler(event);
+  };
+
+  if (event.target.getAttribute("id") === "deleteButton") {
+    deleteButtonHandler(event);
+  };
+};
+
 submitButton.addEventListener("click", submitButtonHandler);
 
-deleteButton.addEventListener("click", deleteButtonHandler);
-
-editButton.addEventListener("click", editButtonHandler);
+document.querySelector('.previousComments').addEventListener('click', handleEditOrDelete);
