@@ -19,8 +19,8 @@
         <p>{{comment.body}}</p>
         {{!-- Only delete/edit comments if they are the owner of it (by nature, this means they must also be logged in to delete/edit their own comments) --}}
         {{#if (is_commenter comment.user.id ../user_id)}}
-          <button class="deleteButton" id="deleteButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Delete Comment</button>
-          <button class="editButton" id="editButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Edit Comment</button>
+          <button class="deleteButton" id="deleteButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Delete Your Comment</button>
+          <button class="editButton" id="editButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Edit Your Comment</button>
         {{/if}}
 
       </div>
