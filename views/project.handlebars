@@ -17,11 +17,12 @@
       <div project-id="{{comment.project_id}}" comment-id="{{comment.id}}">
         <h6>-------<br>Commented by {{comment.user.name}} on {{format_date comment.date_created}}</h6>
         <p>{{comment.body}}</p>
-        {{!-- see if you can get it so that it only shows the option to delete/edit if they wrote the comment --}}
-        {{!-- {{#if project.logged_in}} --}}
+        {{!-- Only delete/edit comments if they are the owner of it (by nature, this means they must also be logged in to delete/edit their own comments) --}}
+        {{#if (is_commenter comment.user.id ../user_id)}}
           <button class="deleteButton" id="deleteButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Delete Comment</button>
           <button class="editButton" id="editButton" project-id="{{comment.project_id}}" comment-id="{{comment.id}}">Edit Comment</button>
-        {{!-- {{/if}} --}}
+        {{/if}}
+
       </div>
     {{/each}}
   </div>

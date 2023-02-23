@@ -41,7 +41,7 @@ router.get('/project/:id', async (req, res) => {
           model: Comment,
           include: {
             model: User,
-            attributes: ['name']
+            attributes: ['id', 'name']
           }
         }
       ],
@@ -50,10 +50,10 @@ router.get('/project/:id', async (req, res) => {
 
     const project = projectData.get({ plain: true });
 
-    // console.log(project);
 
     res.render('project', {
       ...project,
+      user_id: req.session.user_id,
       logged_in: req.session.logged_in
     });
   } catch (err) {

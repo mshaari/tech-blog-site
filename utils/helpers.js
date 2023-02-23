@@ -19,4 +19,9 @@ module.exports = {
       return `<span for="img" aria-label="gear">📕</span>`;
     }
   },
+  is_commenter: (comment_user_id, user_id) => {
+    if (comment_user_id === user_id) {
+      return true;
+    }
+  },
 };
