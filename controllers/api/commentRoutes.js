@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//add a comment
+//add a comment (use withAuth middleware to authenticate access)
 router.post('/', withAuth, async (req, res) => {
   try {
 
@@ -18,7 +18,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-//delete a comment
+//delete a comment (use withAuth middleware to authenticate access)
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const deleteComment = await Comment.destroy({
@@ -33,7 +33,7 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-//update a comment
+//update a comment (use withAuth middleware to authenticate access)
 router.put('/:id', withAuth, async (req, res) => {
   try {
 

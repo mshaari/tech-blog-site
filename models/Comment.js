@@ -1,8 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Comment extends Model {}
+class Comment extends Model { }
 
+// Comment model
 Comment.init(
   {
     id: {
@@ -23,11 +24,11 @@ Comment.init(
       }
     },
     project_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'project',
-          key: 'id'
-        }
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'project',
+        key: 'id'
+      }
     },
     date_created: {
       type: DataTypes.DATE,

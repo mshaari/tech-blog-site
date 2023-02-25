@@ -2,6 +2,7 @@ const User = require('./User');
 const Project = require('./Project');
 const Comment = require('./Comment');
 
+//Associations for models
 User.hasMany(Project, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'

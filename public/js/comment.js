@@ -28,7 +28,7 @@ const submitButtonHandler = async (event) => {
   };
 };
 
-//deleting comment
+//deleting a comment
 const deleteButtonHandler = async (event) => {
   const comment_id = event.target.getAttribute("comment-id");
 
@@ -47,7 +47,7 @@ const deleteButtonHandler = async (event) => {
   };
 };
 
-//updating comment
+//updating a comment
 const editButtonHandler = async (event) => {
   const comment_id = event.target.getAttribute("comment-id");
   const updatedText = window.prompt("What do you want to update the comment to say?");
@@ -79,6 +79,8 @@ const handleEditOrDelete = async (event) => {
   };
 };
 
+// event listener for when user clicks the submit form button
 submitButton.addEventListener("click", submitButtonHandler);
 
+// event listener for when user clicks the edit or the delete buttons
 document.querySelector('.previousComments').addEventListener('click', handleEditOrDelete);

@@ -1,63 +1,62 @@
 [
-    {
-      "body": "This is so awesome!",
-      "commenter_id": 2,
-      "project_id": 1
-    },
-    {
-      "body": "Wow, nice work!",
-      "commenter_id": 1,
-      "project_id": 1
-    },
-    {
-      "body": "Cool post.",
-      "commenter_id": 3,
-      "project_id": 1
-    },
-    {
-      "body": "Interesting!",
-      "commenter_id": 1,
-      "project_id": 2
-    },
-    {
-      "body": "Fascinating.",
-      "commenter_id": 2,
-      "project_id": 2
-    },
-    {
-      "body": "Didn't know this!",
-      "commenter_id": 3,
-      "project_id": 2
-    },
-    {
-      "body": "Insightful!",
-      "commenter_id": 3,
-      "project_id": 3
-    },
-    {
-      "body": "This is awesome.",
-      "commenter_id": 1,
-      "project_id": 3
-    },
-    {
-      "body": "Very, very cool.",
-      "commenter_id": 2,
-      "project_id": 3
-    },
-    {
-      "body": "Insightful!",
-      "commenter_id": 3,
-      "project_id": 4
-    },
-    {
-      "body": "This is awesome.",
-      "commenter_id": 1,
-      "project_id": 4
-    },
-    {
-      "body": "Very, very cool.",
-      "commenter_id": 2,
-      "project_id": 4
-    }
-  ]
-  
+  {
+    "body": "This is so awesome!",
+    "commenter_id": 2,
+    "project_id": 1
+  },
+  {
+    "body": "Wow, nice work!",
+    "commenter_id": 1,
+    "project_id": 1
+  },
+  {
+    "body": "Cool post.",
+    "commenter_id": 3,
+    "project_id": 1
+  },
+  {
+    "body": "Interesting!",
+    "commenter_id": 1,
+    "project_id": 2
+  },
+  {
+    "body": "Fascinating.",
+    "commenter_id": 2,
+    "project_id": 2
+  },
+  {
+    "body": "Didn't know this!",
+    "commenter_id": 3,
+    "project_id": 2
+  },
+  {
+    "body": "Insightful!",
+    "commenter_id": 3,
+    "project_id": 3
+  },
+  {
+    "body": "This is awesome.",
+    "commenter_id": 1,
+    "project_id": 3
+  },
+  {
+    "body": "Very, very cool.",
+    "commenter_id": 2,
+    "project_id": 3
+  },
+  {
+    "body": "Insightful!",
+    "commenter_id": 3,
+    "project_id": 4
+  },
+  {
+    "body": "This is awesome.",
+    "commenter_id": 1,
+    "project_id": 4
+  },
+  {
+    "body": "Very, very cool.",
+    "commenter_id": 2,
+    "project_id": 4
+  }
+]
